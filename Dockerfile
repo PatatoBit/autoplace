@@ -1,0 +1,15 @@
+FROM node:16-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+ENV CLIENT_ID=YOUR_CLIENT_ID
+ENV CLIENT_SECRET=YOUR_CHANNEL_SECRET
+ENV CHANNEL=CHANNEL
+
+CMD ["npm", "start"]

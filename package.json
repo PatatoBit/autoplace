@@ -6,7 +6,7 @@
   "author": "narze",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --exit-child --respawn ."
+    "start": "ts-node-dev --exit-child --respawn ."
   },
   "devDependencies": {
     "@types/dotenv-flow": "^3.1.0",
