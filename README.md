@@ -53,6 +53,6 @@ Periodically play `!place <x> <y> <color hex>` on narzeLive channel
 
 1. `yarn install` or `npm install`
 
-1. `yarn dev` or `npm run dev`
+1. `yarn dev` or `npm start`
 
 > This project is modified from [Narze Autogacha](https://github.com/narze/autogacha)
