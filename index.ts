@@ -35,27 +35,24 @@ async function main() {
   const chatClient = new ChatClient(auth, { channels: [channel] })
 
 
-  chatClient.onConnect(async () => {
-    console.log("CONNECTED", { channel })
-
-    coms.forEach(com => {
-      setTimeout(async() => {
-        let message = `!p ${com[0]} ${com[1]} ${com[2]}`
+  const placePlot = async () => {
+    for (let i = 1; i <= coms.length; i++) {
+      const [x, y, rgb] = coms[i - 1]
+      const message = `!p ${x} ${y} ${rgb}`
+      setTimeout(async () => {
         await chatClient.say(channel, message).then(
           () => {
-            console.log("Sent", { message })
+            console.log("Send", { message })
           },
           (reason) => {
-            console.error("Not sent", { reason })
+            console.error("Not sent", { message, reason })
           }
         )
-      }, commandsInterval)
-    })
-    
-
-  })
-
-  await chatClient.connect()
+      }, commandsInterval * i);
+    }
+  }
+  await chatClient.connect();
+  await placePlot();
 }
 
 main()
